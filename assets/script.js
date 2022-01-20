@@ -1,4 +1,4 @@
-var userCity = document.getElementById("user-city").value;
+var userCity = "philadelphia";
 var getWeatherBtn = document.getElementById("hallelujah");
 var APIkey = "414af75288c260f4c9c7eed4eff2b900";
 var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity},us&appid=${APIkey}`;
@@ -24,7 +24,9 @@ function uvIndex (weatherData) {
       return response.json();
     })
     .then(function (data) {
-      console.log("DATA: " + data);
+      var uvIndex = data.current.uvi;
+      console.log(uvIndex);
+      return uvIndex;
     })
 }
 
@@ -37,12 +39,12 @@ function currentWeatherSearch(weather) {
     icon: weather.weather[0].icon,
     temp: celsiusToFahrenheit(weather.main.temp),
     wind: weather.wind.speed,
-    humidity: weather.main.humidity
-    //uvIdex: weather.current.uvi
+    humidity: weather.main.humidity,
+    uvIndex: 0
   }
 
-  uvIndex(weatherObj);
-  return weatherObj;
+  weatherObj.uvIndex = 1;
+  console.log(uvIndex(weatherObj));
 }
 
 function pastWeatherSearches () {
