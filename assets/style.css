@@ -22,7 +22,7 @@ body {
 .city-form {
     width: 250px;
     height: 210px;
-    background-color: var(--jabara-plum);
+    background-color: var(--weather-girls-blues);
     color: var(--eighties-eyeshadow);
     font-family: 'Catamaran', sans-serif;
     font-weight: 900;
@@ -42,15 +42,23 @@ body {
     font-size: 2.2em;
 }
 
+.btn:hover {
+    background-color: var(--jabara-plum);
+}
+
 .jumbotron {
-    background-color: var(--weather-girls-blues);
-    color: var(--snow-day-white);
-    font-family: 'Catamaran', sans-serif;
-    font-weight: 900;
+    color: var(--shaffer-shades);
+    background: url("../assets/images/weather_girls.jpeg");
+    background-size: cover;
+    height: 400px;
     text-align: center;
-    border-radius: 0;
-    border-bottom: 10px solid var(--snow-day-white);
-  }
+}
+
+.form-title {
+    color: var(--eighties-eyeshadow);
+    font-family: 'Cookie', cursive;
+    font-size: 2.5em;
+}
 
 .news {
     background-color: var(--fahrenheit-red);
@@ -67,12 +75,9 @@ main {
     background-color: var(--eighties-eyeshadow);
 }
 
-img {
-    border-radius: 20px;
-}
-
-h1, h3 {
+h1 {
     font-family: 'Catamaran', sans-serif;
+    font-size: 3em;
     font-weight: 900;
 }
 
