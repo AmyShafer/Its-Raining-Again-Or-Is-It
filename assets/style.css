@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --weather-girls-blues: #00028f;
+  --eighties-eyeshadow: rgb(91, 214, 255); 
+  --fahrenheit-red: #ff0003;
+  --celsius-orange: #ff9a34; 
+  --snow-day-white: #f8f8ee;
+  --jabara-plum: #7508a8;
+  --shaffer-shades: #110e0c;
+  --tall-blonde: #eee235;
+  --dark-lean: #4E3524;
+}
+
+body {
+    background-color: var(--eighties-eyeshadow);
+}
+
+.city-form {
+    width: 250px;
+    height: 210px;
+    background-color: var(--jabara-plum);
+    color: var(--eighties-eyeshadow);
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 900;
+    padding: .5em;
+    border-radius: 10px;
+}
+
+.breaking {
+    background-color: var(--fahrenheit-red);
+}
+
+.btn {
+    width: 220px;
+    background-color: var(--eighties-eyeshadow);
+    color: var(--weather-girls-blues);
+    font-family: 'Cookie', cursive;
+    font-size: 2.2em;
+}
+
+.jumbotron {
+    background-color: var(--weather-girls-blues);
+    color: var(--snow-day-white);
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 900;
+    text-align: center;
+    border-radius: 0;
+    border-bottom: 10px solid var(--snow-day-white);
+  }
+
+.news {
+    background-color: var(--fahrenheit-red);
+}
+
+.news-scroll a {
+    color: var(--weather-girls-blues);
+    font-family: 'Mukta', sans-serif;
+    font-style: italic;
+    text-decoration: none;
+}
+
+main {
+    background-color: var(--eighties-eyeshadow);
+}
+
+img {
+    border-radius: 20px;
+}
+
+h1, h3 {
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 900;
+}
+
+h2 {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+p {
+    font-family: 'Cookie', cursive;
+}
