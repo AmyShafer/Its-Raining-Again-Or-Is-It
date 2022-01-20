@@ -1,8 +1,20 @@
 var userCity = document.getElementById("#userCity");
-var userState = document.getElementById("#userState");
-var userZipCode = document.getElementById("#userZipCode");
-var APIkey = "29b72d6dff855141e3edfe32af26d163";
+var APIkey = "414af75288c260f4c9c7eed4eff2b900";
+var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=Doylestown,us&APPID=414af75288c260f4c9c7eed4eff2b900";
 
-// api.openweathermap.org/data/2.5/weather?q={userCity}&appid={APIkey}
+function getAPI () {
+  //var requestUrl = 'api';
+
+  fetch(requestUrl) 
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    })
+}
+
+getAPI();
+
 
 
