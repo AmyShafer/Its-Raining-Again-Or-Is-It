@@ -1,18 +1,17 @@
 var getWeatherBtn = document.getElementById("hallelujah");
 var APIkey = "414af75288c260f4c9c7eed4eff2b900";
+var userCity = document.getElementById("user-city").value;
 //var requestUrl = ;
 
 function getAPI () {
-  var userCity = document.getElementById("user-city").value;
-  console.log(userCity);
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userCity},us&appid=${APIkey}`) 
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-        weather = data;
-        console.log(userCity);
-        currentWeatherSearch(weather);
+      weather = data;
+      return weather;
+      //currentWeatherSearch(weather);
     })
 }
 
@@ -48,9 +47,11 @@ function currentWeatherSearch(weather) {
   console.log(weatherObj);
 }
 
+/*
 function pastWeatherSearches () {
 
 }
+*/
 
 // Convert the temperature Celsius to Fahrenheit
 function celsiusToFahrenheit (celTemp) {
