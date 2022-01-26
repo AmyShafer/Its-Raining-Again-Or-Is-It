@@ -1,23 +1,24 @@
-var userCity = "philadelphia";
 var getWeatherBtn = document.getElementById("hallelujah");
 var APIkey = "414af75288c260f4c9c7eed4eff2b900";
-var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity},us&appid=${APIkey}`;
+//var requestUrl = ;
 
 function getAPI () {
-  fetch(requestUrl) 
+  var userCity = document.getElementById("user-city").value;
+  console.log(userCity);
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userCity},us&appid=${APIkey}`) 
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
         weather = data;
-        console.log(weather);
+        console.log(userCity);
         currentWeatherSearch(weather);
     })
 }
 
 // The UV Index requires an One Call API request unlike the other information
 function uvIndex (weatherData) {
-  var oneCallAPI =  `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherData.lat}&lon=${weatherData.long}&appid=${APIkey}`;
+  var oneCallAPI = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherData.lat}&lon=${weatherData.long}&appid=${APIkey}`;
 
   fetch(oneCallAPI) 
     .then(function (response) {
@@ -44,7 +45,7 @@ function currentWeatherSearch(weather) {
   }
 
   weatherObj.uvIndex = 1;
-  console.log(uvIndex(weatherObj));
+  console.log(weatherObj);
 }
 
 function pastWeatherSearches () {
@@ -57,4 +58,6 @@ function celsiusToFahrenheit (celTemp) {
   return Math.ceil(convertedTemp) + "°F";
 } 
 
-getWeatherBtn.addEventListener("click", getAPI());
+getWeatherBtn.addEventListener("click", getAPI);
+
+
