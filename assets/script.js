@@ -1,17 +1,18 @@
 var getWeatherBtn = document.getElementById("hallelujah");
 var APIkey = "414af75288c260f4c9c7eed4eff2b900";
-var userCity = document.getElementById("user-city").value;
 //var requestUrl = ;
 
-function getAPI () {
+function getAPI (event) {
+  event.preventDefault();
+  var userCity = document.getElementById("user-city").value;
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userCity},us&appid=${APIkey}`) 
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       weather = data;
-      return weather;
-      //currentWeatherSearch(weather);
+      console.log(weather);
+      currentWeatherSearch(weather);
     })
 }
 
@@ -25,7 +26,9 @@ function uvIndex (weatherData) {
     })
     .then(function (data) {
       var uvIndex = data.current.uvi;
-      console.log(uvIndex);
+      weatherData.uvIndex = uvIndex;
+      console.log(data);
+      displayWeather(data);
       return uvIndex;
     })
 }
@@ -42,9 +45,17 @@ function currentWeatherSearch(weather) {
     humidity: weather.main.humidity,
     uvIndex: 0
   }
+  uvIndex(weatherObj);
+}
 
-  weatherObj.uvIndex = 1;
-  console.log(weatherObj);
+function displayWeather (weather) {
+  var getCards = document.querySelectorAll(".card");
+  console.log(getCards);
+  for (var i = 0; i < getCards.length; i++) {
+    var currentCard = getCards[i];
+    var dateString = moment.unix(weather.daily[i].dt).format("MMM Do YY");
+    currentCard.childNodes[1].textContent = dateString;
+  }
 }
 
 /*
@@ -60,5 +71,6 @@ function celsiusToFahrenheit (celTemp) {
 } 
 
 getWeatherBtn.addEventListener("click", getAPI);
+
 
 
