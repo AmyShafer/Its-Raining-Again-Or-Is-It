@@ -5,7 +5,7 @@
 
 :root {
   --weather-girls-blues: #00028f;
-  --eighties-eyeshadow: rgb(91, 214, 255); 
+  --eighties-eyeshadow: #37bcff; 
   --fahrenheit-red: #ff0003;
   --celsius-orange: #ff9a34; 
   --snow-day-white: #f8f8ee;
@@ -19,15 +19,45 @@ body {
     background-color: var(--eighties-eyeshadow);
 }
 
-.city-form {
-    width: 250px;
-    height: 210px;
+footer {
+    width: 100%;
+    padding: .7em;
     background-color: var(--weather-girls-blues);
     color: var(--eighties-eyeshadow);
+    font-family: 'Cookie', sans-serif;
+    font-size: 2em;
+    text-shadow: 0 0 7px var(--jabara-plum), 0 0 9px violet;
+}
+
+h1 {
     font-family: 'Catamaran', sans-serif;
+    font-size: 3em;
     font-weight: 900;
-    padding: .5em;
-    border-radius: 10px;
+}
+
+h2 {
+    color: violet;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+h3 {
+    font-family: 'Cookie', sans-serif;
+    font-weight: 600;
+}
+
+i:hover {
+    color: var(--celsius-orange);
+    transition: all 0.3s ease-in-out;
+}
+
+main {
+    background-color: var(--eighties-eyeshadow);
+}
+
+p {
+    font-family: 'Cookie', cursive;
 }
 
 .breaking {
@@ -35,7 +65,8 @@ body {
 }
 
 .btn {
-    width: 220px;
+    width: 200px;
+    margin: 1em;
     background-color: var(--eighties-eyeshadow);
     color: var(--weather-girls-blues);
     font-family: 'Cookie', cursive;
@@ -44,6 +75,20 @@ body {
 
 .btn:hover {
     background-color: var(--jabara-plum);
+    color: var(--eighties-eyeshadow);
+    text-shadow: 0 0 8px var(--jabara-plum), 0 0 10px violet;
+}
+
+.city-form {
+    margin: 2em auto 2em auto;
+    padding: 1em;
+    width: 450px;
+    height: 380px;
+    background-color: var(--weather-girls-blues);
+    color: var(--eighties-eyeshadow);
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 900;
+    border-radius: 10px;
 }
 
 .jumbotron {
@@ -54,7 +99,7 @@ body {
     text-align: center;
 }
 
-.form-title {
+.form-instruct {
     color: var(--eighties-eyeshadow);
     font-family: 'Cookie', cursive;
     font-size: 2.5em;
@@ -71,26 +116,7 @@ body {
     text-decoration: none;
 }
 
-main {
-    background-color: var(--eighties-eyeshadow);
-}
-
-h1 {
-    font-family: 'Catamaran', sans-serif;
-    font-size: 3em;
-    font-weight: 900;
-}
-
-h2 {
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 800;
-}
-
-h3 {
-    font-family: 'Cookie', sans-serif;
-    font-weight: 600;
-}
-
-p {
-    font-family: 'Cookie', cursive;
+#form-header {
+    color: var(--snow-day-white);
+    text-shadow: 0 0 8px var(--jabara-plum), 0 0 10px violet;
 }
