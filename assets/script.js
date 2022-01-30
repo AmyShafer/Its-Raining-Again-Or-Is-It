@@ -32,6 +32,17 @@ function uvIndex (weatherData) {
     })
 }
 
+// UV color code
+function uvColorCode (daysUVIndex) {
+  if (daysUVIndex >= 2 && daysUVIndex < 6) {
+    currentCard.children[1].children[1].children[3].children[0].setAttribute("style", "background-color: yellow; color: black");
+  } else if (daysUVIndex >= 6 && daysUVIndex < 8) {
+    currentCard.children[1].children[1].children[3].children[0].setAttribute("style", "background-color: orange color: black;");
+  } else if (daysUVIndex >= 8 && daysUVIndex < 11) {
+    currentCard.children[1].children[1].children[3].children[0].setAttribute("style", "background-color: red;");
+  } 
+}
+
 // Organizes all the needed information into an object
 function currentWeatherSearch(weather) {
   let weatherObj = {
@@ -66,6 +77,7 @@ function displayWeather (weather) {
     currentCard.children[1].children[1].children[2].children[0].textContent = ` ${daysHumidity} %`;
     currentCard.children[1].children[1].children[3].children[0].textContent = daysUVIndex;
   }
+  uvColorCode(daysUVIndex);
 }
 
 /*

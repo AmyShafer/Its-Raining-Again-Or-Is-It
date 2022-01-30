@@ -62,10 +62,20 @@ p {
     font-family: 'Cookie', cursive;
 }
 
+span {
+    font-size: 1.5em;
+    font-weight: 800;
+}
+
 ul li {
     font-family: 'Mukta', sans-serif;
     font-weight: 500;
+    line-height: 2em;
     list-style: none;
+}
+
+uv-index {
+
 }
 
 .breaking {
@@ -126,6 +136,7 @@ ul li {
 
 .uv-index {
     background-color: var(--jabara-green);
+    padding: .15em;
     border-radius: 2px;
     color: var(--snow-day-white);
 }
