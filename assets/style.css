@@ -127,6 +127,19 @@ uv-index {
     font-size: 2.5em;
 }
 
+.past-searches {
+    visibility: hidden;
+    margin: 2em auto 2em auto;
+    padding: 1em;
+    width: 450px;
+    height: 380px;
+    background-color: var(--weather-girls-blues);
+    color: var(--eighties-eyeshadow);
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 900;
+    border-radius: 10px;
+}
+
 .news {
     background-color: var(--fahrenheit-red);
 }

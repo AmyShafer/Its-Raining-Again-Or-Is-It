@@ -3,6 +3,7 @@ const todayDate = moment().format('MMM Do');
 const getWeatherBtn = document.getElementById("hallelujah");
 const APIkey = "414af75288c260f4c9c7eed4eff2b900";
 const weatherIcon = document.querySelectorAll('.weather-icon');
+const pastSearches = document.querySelector('.past-searches');
 
 function getAPI (event) {
   event.preventDefault();
@@ -67,7 +68,6 @@ function displayWeather (weather) {
     // needed information for each item
     const dateString = moment.unix(weather.daily[i].dt).format("MMM Do YYYY");
     const daysForecast = weather.daily[i].weather[0].main;
-    console.log("FORECAST " + daysForecast);
     const daysIcon = weather.daily[i].weather[0].icon;
     const daysTemp = weather.daily[i].temp.day;
     const daysWind = weather.daily[i].wind_speed;
@@ -81,20 +81,20 @@ function displayWeather (weather) {
     currentCard.children[1].children[1].children[2].children[0].textContent = ` ${daysHumidity} %`;
     currentCard.children[1].children[1].children[3].children[0].textContent = daysUVIndex;
   }
-  breakingNews(daysForecast);
+  forecast = daysForecast;
+  breakingNews(forecast);
   uvColorCode(daysUVIndex);
 }
 
-/*
+
 // Saves user's past city inputs
 function pastWeatherSearches () {
-
+  pastSearches.setAttribute("style", "visibility: visible;");
 }
-*/
 
 // Outputs important days in the breaking news header
 function breakingNews (forecast) {
-  
+  console.log("BREAKING NEWS!");
   // Paul Jabara's Birthday is January 31st
   if (todayDate === "Jan 31st") {
     breaking.textContent = "HAPPY BIRTHDAY TO PAUL JABARA, THE CO-COMPOSER OF IT'S RAINING MEN!";
@@ -102,7 +102,7 @@ function breakingNews (forecast) {
   } else if (todayDate === "Jul 6th") {
     breaking.textContent = "HAPPY BIRTHDAY TO WEATHER GIRL, IZORA ARMSTEAD! HALLELUJAH FOR IZORA!"
   // It's Raining Men's Release Date was September 10th 1982
-  } else if (ttodayDate === "Sep 10th") {
+  } else if (todayDate === "Sep 10th") {
     breaking.textContent = "HAPPY BIRTHDAY TO PAUL JABARA, THE CO-COMPOSER OF IT'S RAINING MEN!"
   // Paul Shaffer's Birthday is November 28th   
   } else if (todayDate === "Nov 28th") {
@@ -110,7 +110,7 @@ function breakingNews (forecast) {
   // Martha Wash's Birthday is December 28th  
   } else {
     // Weather Update
-    breaking.innerHTML = `TODAY YOU CAN EXPECT ${forecast.toUpperCase()}`;
+    breaking.textContent = `TODAY YOU CAN EXPECT ${forecast.toUpperCase()}!`;
   }
 }
 
