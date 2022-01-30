@@ -1,7 +1,7 @@
+const breaking = document.querySelector('.news-scroll');
 const getWeatherBtn = document.getElementById("hallelujah");
 const APIkey = "414af75288c260f4c9c7eed4eff2b900";
 const weatherIcon = document.querySelectorAll('.weather-icon');
-const weatherDetails = document.querySelectorAll('.weather-details');
 
 function getAPI (event) {
   event.preventDefault();
@@ -34,6 +34,7 @@ function uvIndex (weatherData) {
 
 // UV color code
 function uvColorCode (daysUVIndex) {
+  // the default color is green, if the UV Index is under 2
   if (daysUVIndex >= 2 && daysUVIndex < 6) {
     currentCard.children[1].children[1].children[3].children[0].setAttribute("style", "background-color: yellow; color: black");
   } else if (daysUVIndex >= 6 && daysUVIndex < 8) {
@@ -58,18 +59,20 @@ function currentWeatherSearch(weather) {
 }
 
 function displayWeather (weather) {
-  console.log(weather);
   let getCards = document.querySelectorAll(".card");
   for (let i = 0; i < getCards.length; i++) {
     const currentCard = getCards[i];
+    // displays the cards themselves
+    currentCard.setAttribute("style", "visibility: visible")
+    // needed information for each item
     const dateString = moment.unix(weather.daily[i].dt).format("MMM Do YYYY");
+    const daysForecast = weather.daily[i].main;
     const daysIcon = weather.daily[i].weather[0].icon;
     const daysTemp = weather.daily[i].temp.day;
     const daysWind = weather.daily[i].wind_speed;
     const daysHumidity = weather.daily[i].humidity;
     const daysUVIndex = weather.daily[i].uvi;
-    console.log(celsiusToFahrenheit(daysTemp));
-     // text content for each card
+    // content for each card
     currentCard.childNodes[1].textContent = dateString;
     weatherIcon[i].setAttribute("src", `http://openweathermap.org/img/wn/${daysIcon}.png`);
     currentCard.children[1].children[1].children[0].children[0].textContent = celsiusToFahrenheit(daysTemp);
@@ -78,6 +81,7 @@ function displayWeather (weather) {
     currentCard.children[1].children[1].children[3].children[0].textContent = daysUVIndex;
   }
   uvColorCode(daysUVIndex);
+  breakingNews(daysForecast);
 }
 
 /*
@@ -85,12 +89,19 @@ function displayWeather (weather) {
 function pastWeatherSearches () {
 
 }
+*/
 
 // Outputs important days in the breaking news header
-function breakingNews () {
-
+function breakingNews (forecast) {
+  // Paul Shaffer's Birthday is November 28th 
+  // Paul Jabara's Birthday is January 31st
+  // Martha Wash's Birthday is December 28th
+  // Izora Armstead's Birthday is July 6th
+  // It's Raining Men's Release Date was September 10th 1982
+  // Weather Update
+  breaking = `TODAY YOU CAN EXPECT ${forecast.toUpperCase()}`;
 }
-*/
+
 
 // Convert the temperature Celsius to Fahrenheit
 function celsiusToFahrenheit (celTemp) {

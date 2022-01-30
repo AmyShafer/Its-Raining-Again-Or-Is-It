@@ -97,6 +97,10 @@ uv-index {
     text-shadow: 0 0 8px var(--martha-plum), 0 0 10px var(--izora-violet);
 }
 
+.card {
+    visibility: hidden;
+}
+
 .city-form {
     margin: 2em auto 2em auto;
     padding: 1em;
