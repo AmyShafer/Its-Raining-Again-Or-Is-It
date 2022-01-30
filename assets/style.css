@@ -8,10 +8,12 @@
   --eighties-eyeshadow: #37bcff; 
   --fahrenheit-red: #ff0003;
   --celsius-orange: #ff9a34; 
-  --snow-day-white: #f8f8ee;
-  --jabara-plum: #7508a8;
+  --snow-day-white: #fdfffd;
+  --izora-violet: #d57aff;
+  --martha-plum: #9310eb;
+  --jabara-green: #08a810;
   --shaffer-shades: #110e0c;
-  --tall-blonde: #eee235;
+  --tall-blonde: #ffde4b;
   --dark-lean: #4E3524;
 }
 
@@ -26,7 +28,7 @@ footer {
     color: var(--eighties-eyeshadow);
     font-family: 'Cookie', sans-serif;
     font-size: 2em;
-    text-shadow: 0 0 7px var(--jabara-plum), 0 0 9px violet;
+    text-shadow: 0 0 7px var(--martha-plum), 0 0 9px var(--izora-violet);
 }
 
 h1 {
@@ -60,6 +62,12 @@ p {
     font-family: 'Cookie', cursive;
 }
 
+ul li {
+    font-family: 'Mukta', sans-serif;
+    font-weight: 500;
+    list-style: none;
+}
+
 .breaking {
     background-color: var(--fahrenheit-red);
 }
@@ -74,9 +82,9 @@ p {
 }
 
 .btn:hover {
-    background-color: var(--jabara-plum);
+    background-color: var(--martha-plum);
     color: var(--eighties-eyeshadow);
-    text-shadow: 0 0 8px var(--jabara-plum), 0 0 10px violet;
+    text-shadow: 0 0 8px var(--martha-plum), 0 0 10px var(--izora-violet);
 }
 
 .city-form {
@@ -116,7 +124,13 @@ p {
     text-decoration: none;
 }
 
+.uv-index {
+    background-color: var(--jabara-green);
+    border-radius: 2px;
+    color: var(--snow-day-white);
+}
+
 #form-header {
     color: var(--snow-day-white);
-    text-shadow: 0 0 8px var(--jabara-plum), 0 0 10px violet;
+    text-shadow: 0 0 8px var(--martha-plum), 0 0 10px var(--izora-violet);
 }

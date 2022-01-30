@@ -1,6 +1,7 @@
 const getWeatherBtn = document.getElementById("hallelujah");
 const APIkey = "414af75288c260f4c9c7eed4eff2b900";
 const weatherIcon = document.querySelectorAll('.weather-icon');
+const weatherDetails = document.querySelectorAll('.weather-details');
 
 function getAPI (event) {
   event.preventDefault();
@@ -27,8 +28,6 @@ function uvIndex (weatherData) {
       let uvIndex = data.current.uvi;
       let icon = data.current.weather[0].icon;
       weatherData.uvIndex = uvIndex;
-      weatherData.icon = icon;
-      console.log(uvIndex + " -- " + icon);
       displayWeather(data);
     })
 }
@@ -44,7 +43,6 @@ function currentWeatherSearch(weather) {
     humidity: weather.main.humidity,
     uvIndex: 0
   }
-  console.log("Icon: " + weatherObj.icon);
   uvIndex(weatherObj);
 }
 
@@ -54,16 +52,30 @@ function displayWeather (weather) {
   for (let i = 0; i < getCards.length; i++) {
     const currentCard = getCards[i];
     const dateString = moment.unix(weather.daily[i].dt).format("MMM Do YYYY");
-    const currentIcon = weather.daily[i].weather[0].icon;
-    //const {icon} = data.weather[0];
+    const daysIcon = weather.daily[i].weather[0].icon;
+    const daysTemp = weather.daily[i].temp.day;
+    const daysWind = weather.daily[i].wind_speed;
+    const daysHumidity = weather.daily[i].humidity;
+    const daysUVIndex = weather.daily[i].uvi;
+    console.log(celsiusToFahrenheit(daysTemp));
+     // text content for each card
     currentCard.childNodes[1].textContent = dateString;
-    weatherIcon[i].setAttribute("src", `http://openweathermap.org/img/wn/${currentIcon}.png`);
-    //currentCard.childNodes[2].textContent = `https://openweathermap.org/img/w/${currentIcon}.png`;
+    weatherIcon[i].setAttribute("src", `http://openweathermap.org/img/wn/${daysIcon}.png`);
+    currentCard.children[1].children[1].children[0].children[0].textContent = celsiusToFahrenheit(daysTemp);
+    currentCard.children[1].children[1].children[1].children[0].textContent = ` ${daysWind} MPH`;
+    currentCard.children[1].children[1].children[2].children[0].textContent = ` ${daysHumidity} %`;
+    currentCard.children[1].children[1].children[3].children[0].textContent = daysUVIndex;
   }
 }
 
 /*
+// Saves user's past city inputs
 function pastWeatherSearches () {
+
+}
+
+// Outputs important days in the breaking news header
+function breakingNews () {
 
 }
 */
@@ -75,6 +87,4 @@ function celsiusToFahrenheit (celTemp) {
 } 
 
 getWeatherBtn.addEventListener("click", getAPI);
-
-
 
