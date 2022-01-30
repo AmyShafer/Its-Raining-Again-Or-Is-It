@@ -66,7 +66,8 @@ function displayWeather (weather) {
     currentCard.setAttribute("style", "visibility: visible")
     // needed information for each item
     const dateString = moment.unix(weather.daily[i].dt).format("MMM Do YYYY");
-    const daysForecast = weather.daily[i].weather.main;
+    const daysForecast = weather.daily[i].weather[0].main;
+    console.log("FORECAST " + daysForecast);
     const daysIcon = weather.daily[i].weather[0].icon;
     const daysTemp = weather.daily[i].temp.day;
     const daysWind = weather.daily[i].wind_speed;
@@ -109,7 +110,7 @@ function breakingNews (forecast) {
   // Martha Wash's Birthday is December 28th  
   } else {
     // Weather Update
-    breaking = `TODAY YOU CAN EXPECT ${forecast.toUpperCase()}`;
+    breaking.innerHTML = `TODAY YOU CAN EXPECT ${forecast.toUpperCase()}`;
   }
 }
 
