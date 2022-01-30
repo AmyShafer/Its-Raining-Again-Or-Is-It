@@ -1,4 +1,5 @@
-const breaking = document.querySelector('.news-scroll');
+let breaking = document.querySelector('.news-scroll');
+const todayDate = moment().format('MMM Do');
 const getWeatherBtn = document.getElementById("hallelujah");
 const APIkey = "414af75288c260f4c9c7eed4eff2b900";
 const weatherIcon = document.querySelectorAll('.weather-icon');
@@ -26,7 +27,6 @@ function uvIndex (weatherData) {
     })
     .then(function (data) {
       let uvIndex = data.current.uvi;
-      let icon = data.current.weather[0].icon;
       weatherData.uvIndex = uvIndex;
       displayWeather(data);
     })
@@ -66,7 +66,7 @@ function displayWeather (weather) {
     currentCard.setAttribute("style", "visibility: visible")
     // needed information for each item
     const dateString = moment.unix(weather.daily[i].dt).format("MMM Do YYYY");
-    const daysForecast = weather.daily[i].main;
+    const daysForecast = weather.daily[i].weather.main;
     const daysIcon = weather.daily[i].weather[0].icon;
     const daysTemp = weather.daily[i].temp.day;
     const daysWind = weather.daily[i].wind_speed;
@@ -80,8 +80,8 @@ function displayWeather (weather) {
     currentCard.children[1].children[1].children[2].children[0].textContent = ` ${daysHumidity} %`;
     currentCard.children[1].children[1].children[3].children[0].textContent = daysUVIndex;
   }
-  uvColorCode(daysUVIndex);
   breakingNews(daysForecast);
+  uvColorCode(daysUVIndex);
 }
 
 /*
@@ -93,13 +93,24 @@ function pastWeatherSearches () {
 
 // Outputs important days in the breaking news header
 function breakingNews (forecast) {
-  // Paul Shaffer's Birthday is November 28th 
+  
   // Paul Jabara's Birthday is January 31st
-  // Martha Wash's Birthday is December 28th
-  // Izora Armstead's Birthday is July 6th
+  if (todayDate === "Jan 31st") {
+    breaking.textContent = "HAPPY BIRTHDAY TO PAUL JABARA, THE CO-COMPOSER OF IT'S RAINING MEN!";
+  // Izora Armstead's Birthday is July 6th  
+  } else if (todayDate === "Jul 6th") {
+    breaking.textContent = "HAPPY BIRTHDAY TO WEATHER GIRL, IZORA ARMSTEAD! HALLELUJAH FOR IZORA!"
   // It's Raining Men's Release Date was September 10th 1982
-  // Weather Update
-  breaking = `TODAY YOU CAN EXPECT ${forecast.toUpperCase()}`;
+  } else if (ttodayDate === "Sep 10th") {
+    breaking.textContent = "HAPPY BIRTHDAY TO PAUL JABARA, THE CO-COMPOSER OF IT'S RAINING MEN!"
+  // Paul Shaffer's Birthday is November 28th   
+  } else if (todayDate === "Nov 28th") {
+    breaking.textContent = "HAPPY BIRTHDAY TO WEATHER GIRL, MARTHA WASH! HALLELUJAH FOR MARTHA!"
+  // Martha Wash's Birthday is December 28th  
+  } else {
+    // Weather Update
+    breaking = `TODAY YOU CAN EXPECT ${forecast.toUpperCase()}`;
+  }
 }
 
 

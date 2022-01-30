@@ -131,7 +131,7 @@ uv-index {
     background-color: var(--fahrenheit-red);
 }
 
-.news-scroll a {
+.news-scroll h2 {
     color: var(--weather-girls-blues);
     font-family: 'Mukta', sans-serif;
     font-style: italic;
