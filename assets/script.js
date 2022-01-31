@@ -5,6 +5,14 @@ const APIkey = "414af75288c260f4c9c7eed4eff2b900";
 const weatherIcon = document.querySelectorAll('.weather-icon');
 const pastSearches = document.querySelector('.past-searches');
 
+const breakingNewsMessages = [
+`<i class="fas fa-music"></i> HAPPY BIRTHDAY TO PAUL JABARA, THE CO-COMPOSER OF IT'S RAINING MEN! <i class="fas fa-music"></i>`,
+`<i class="fas fa-rainbow"></i> HAPPY BIRTHDAY TO WEATHER GIRL, IZORA ARMSTEAD! HALLELUJAH FOR IZORA! <i class="fas fa-rainbow"></i>`,
+`<i class="fas fa-bolt"></i> IT'S RAINING MEN WAS RELEASED ON SEPTEMBER 10TH, 1982! TODAY, THE ICONIC SONG TURNS 40! <i class="fas fa-bolt"></i>`,
+`<i class="fas fa-glasses"></i> HAPPY BIRTHDAY TO PAUL SHAFFER, THE CO-COMPOSER OF IT'S RAINING MEN! <i class="fas fa-glasses"></i>`,
+`<i class="fas fa-cloud-moon"></i> HAPPY BIRTHDAY TO WEATHER GIRL, MARTHA WASH! HALLELUJAH FOR MARTHA! <i class="fas fa-cloud-moon"></i>`
+];
+
 const cities = [];
 
 function getAPI (event) {
@@ -98,15 +106,12 @@ function pastWeatherSearches (recentSearch) {
   cities.push(recentSearch);
   localStorage.setItem("Past Searches", JSON.stringify(cities));
   let citiesSearched = localStorage.getItem("Past Searches");
-
-  for (let i = 0; i < cities.length; i++) {
-    const currentCity = cities[i];
-    
+  
+    const currentCity = recentSearch.toUpperCase();
     const pastCity = document.createElement("li");
     pastCity.textContent = currentCity;
 
     citiesList.appendChild(pastCity);
-  }
 }
 
 // Outputs important days in the breaking news header
@@ -114,23 +119,24 @@ function breakingNews (forecast) {
   console.log("BREAKING NEWS!");
   // Paul Jabara's Birthday is January 31st
   if (todayDate === "Jan 31st") {
-    breaking.textContent = "HAPPY BIRTHDAY TO PAUL JABARA, THE CO-COMPOSER OF IT'S RAINING MEN!";
+    breaking.innerHTML = breakingNewsMessages[0];
   // Izora Armstead's Birthday is July 6th  
   } else if (todayDate === "Jul 6th") {
-    breaking.textContent = "HAPPY BIRTHDAY TO WEATHER GIRL, IZORA ARMSTEAD! HALLELUJAH FOR IZORA!"
+    breaking.innerHTML = breakingNewsMessages[1];
   // It's Raining Men's Release Date was September 10th 1982
   } else if (todayDate === "Sep 10th") {
-    breaking.textContent = "HAPPY BIRTHDAY TO PAUL JABARA, THE CO-COMPOSER OF IT'S RAINING MEN!"
+    breaking.innerHTML = breakingNewsMessages[2];
   // Paul Shaffer's Birthday is November 28th   
   } else if (todayDate === "Nov 28th") {
-    breaking.textContent = "HAPPY BIRTHDAY TO WEATHER GIRL, MARTHA WASH! HALLELUJAH FOR MARTHA!"
+    breaking.innerHTML = breakingNewsMessages[3];
   // Martha Wash's Birthday is December 28th  
-  } else {
-    // Weather Update
+  } else if (todayDate === "Dec 28th") {
+    breaking.innerHTML = breakingNewsMessages[4];
+  // Weather Update
+  } else { 
     breaking.textContent = `TODAY YOU CAN EXPECT ${forecast.toUpperCase()}!`;
   }
 }
-
 
 // Convert the temperature Celsius to Fahrenheit
 function celsiusToFahrenheit (celTemp) {
@@ -139,4 +145,5 @@ function celsiusToFahrenheit (celTemp) {
 } 
 
 getWeatherBtn.addEventListener("click", getAPI);
+window.addEventListener('load', breakingNews)
 
