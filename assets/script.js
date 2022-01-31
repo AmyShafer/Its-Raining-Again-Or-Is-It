@@ -14,8 +14,32 @@ const breakingNewsMessages = [
 `<i class="fas fa-cloud-moon"></i> HAPPY BIRTHDAY TO WEATHER GIRL, MARTHA WASH! HALLELUJAH FOR MARTHA! <i class="fas fa-cloud-moon"></i>`
 ];
 
+// Outputs important days in the breaking news header
+function breakingNews (forecast) {
+  // Paul Jabara's Birthday is January 31st
+  if (todayDate === "Jan 31st") {
+    breaking.innerHTML = breakingNewsMessages[0];
+  // Izora Armstead's Birthday is July 6th  
+  } else if (todayDate === "Jul 6th") {
+    breaking.innerHTML = breakingNewsMessages[1];
+  // It's Raining Men's Release Date was September 10th 1982
+  } else if (todayDate === "Sep 10th") {
+    breaking.innerHTML = breakingNewsMessages[2];
+  // Paul Shaffer's Birthday is November 28th   
+  } else if (todayDate === "Nov 28th") {
+    breaking.innerHTML = breakingNewsMessages[3];
+  // Martha Wash's Birthday is December 28th  
+  } else if (todayDate === "Dec 28th") {
+    breaking.innerHTML = breakingNewsMessages[4];
+  // Weather Update
+  } else { 
+    breaking.textContent = `TODAY YOU CAN EXPECT ${forecast.toUpperCase()}!`;
+  }
+}
+
 const cities = [];
 
+// Connects the app to the weather api
 function getAPI (event) {
   event.preventDefault();
   let userCity = document.getElementById("user-city").value;
@@ -31,7 +55,7 @@ function getAPI (event) {
     })
 }
 
-// The UV Index requires an One Call API request unlike the other information
+// The UV Index requires an One Call API request unlike the other weather information
 function uvIndex (weatherData) {
   let oneCallAPI = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherData.lat}&lon=${weatherData.long}&appid=${APIkey}`;
 
@@ -72,6 +96,7 @@ function currentWeatherSearch(weather) {
   uvIndex(weatherObj);
 }
 
+// Outputs the weather forecast to the page
 function displayWeather (weather) {
   let getCards = document.querySelectorAll(".card");
   for (let i = 0; i < getCards.length; i++) {
@@ -94,15 +119,13 @@ function displayWeather (weather) {
     currentCard.children[1].children[1].children[2].children[0].textContent = ` ${daysHumidity} %`;
     currentCard.children[1].children[1].children[3].children[0].textContent = daysUVIndex;
   }
-  breakingNews(forecast);
+  breakingNews(daysForecast);
   uvColorCode(daysUVIndex);
   pastWeatherSearches();
 }
 
-
-// Saves user's past city inputs
+// Saves user's past city inputs and makes them buttons
 function pastWeatherSearches (recentSearch) {
-  console.log("HERE: ");
   let citiesList = document.querySelector(".past-cities-list");
   cities.push(recentSearch);
   localStorage.setItem("Past Searches", JSON.stringify(cities));
@@ -110,41 +133,19 @@ function pastWeatherSearches (recentSearch) {
   
     const currentCity = recentSearch.toUpperCase();
     const pastCity = document.createElement("button");
+    pastCity.setAttribute("id", recentSearch);
     pastCity.textContent = currentCity;
 
     citiesList.appendChild(pastCity);
+    //getAPI(recentSearch);
 }
 
-// Outputs important days in the breaking news header
-function breakingNews (forecast) {
-  console.log("BREAKING NEWS!");
-  // Paul Jabara's Birthday is January 31st
-  if (todayDate === "Jan 31st") {
-    breaking.innerHTML = breakingNewsMessages[0];
-  // Izora Armstead's Birthday is July 6th  
-  } else if (todayDate === "Jul 6th") {
-    breaking.innerHTML = breakingNewsMessages[1];
-  // It's Raining Men's Release Date was September 10th 1982
-  } else if (todayDate === "Sep 10th") {
-    breaking.innerHTML = breakingNewsMessages[2];
-  // Paul Shaffer's Birthday is November 28th   
-  } else if (todayDate === "Nov 28th") {
-    breaking.innerHTML = breakingNewsMessages[3];
-  // Martha Wash's Birthday is December 28th  
-  } else if (todayDate === "Dec 28th") {
-    breaking.innerHTML = breakingNewsMessages[4];
-  // Weather Update
-  } else { 
-    breaking.textContent = `TODAY YOU CAN EXPECT ${forecast.toUpperCase()}!`;
-  }
-}
-
-// Convert the temperature Celsius to Fahrenheit
+// Converts the temperature Celsius to Fahrenheit
 function celsiusToFahrenheit (celTemp) {
   let convertedTemp =  (celTemp * 9 )/ (5 + 32);
   return Math.ceil(convertedTemp) + "°F";
 } 
 
 getWeatherBtn.addEventListener("click", getAPI);
-window.addEventListener('load', breakingNews)
+window.addEventListener("load", breakingNews)
 

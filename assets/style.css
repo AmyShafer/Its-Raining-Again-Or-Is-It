@@ -10,13 +10,14 @@
   --celsius-orange: #ff9a34; 
   --snow-day-white: #fdfffd;
   --izora-violet: #d57aff;
-  --martha-plum: #9310eb;
+  --martha-plum: #53008a;
   --jabara-green: #08a810;
   --shaffer-shades: #110e0c;
   --tall-blonde: #ffde4b;
   --dark-lean: #4E3524;
 }
 
+/* SELECTORS are alphabetized */
 body {
     background-color: var(--eighties-eyeshadow);
 }
@@ -28,13 +29,20 @@ button {
     color: var(--weather-girls-blues);
     font-family: 'Mukta', sans-serif;
     font-size: 1.5em;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 button:hover {
     background-color: var(--martha-plum);
     color: var(--eighties-eyeshadow);
-    text-shadow: 0 0 8px var(--martha-plum), 0 0 10px var(--izora-violet);
+    box-shadow: 0 0 5px var(--martha-plum), 0 0 6px var(--izora-violet);
+}
+
+button:active {
+    background-color: var(--eighties-eyeshadow);
+    color: var(--fahrenheit-red);
+    font-weight: 700;
+    box-shadow: 0 0 6px var(--martha-plum), 0 0 7px var(--snow-day-white);
 }
 
 footer {
@@ -90,10 +98,7 @@ ul li {
     list-style: none;
 }
 
-uv-index {
-
-}
-
+/* CLASSES are alphabetized */
 .breaking {
     background-color: var(--fahrenheit-red);
 }
@@ -131,6 +136,7 @@ uv-index {
 
 .jumbotron {
     color: var(--shaffer-shades);
+    text-shadow: 1px 0 8px var(--martha-plum), 0 2px 9px var(--snow-day-white);
     background: url("../assets/images/weather_girls.jpeg");
     background-size: cover;
     height: 400px;
@@ -144,7 +150,6 @@ uv-index {
 }
 
 .past-searches {
-    /*visibility: hidden;*/
     margin: 2em auto 2em auto;
     padding: 1em;
     width: 450px;
@@ -175,6 +180,7 @@ uv-index {
     color: var(--snow-day-white);
 }
 
+/* ID for the City Form */
 #form-header {
     color: var(--snow-day-white);
     text-shadow: 0 0 8px var(--martha-plum), 0 0 10px var(--izora-violet);
