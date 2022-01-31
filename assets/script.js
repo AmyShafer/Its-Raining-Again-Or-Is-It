@@ -5,6 +5,7 @@ const APIkey = "414af75288c260f4c9c7eed4eff2b900";
 const weatherIcon = document.querySelectorAll('.weather-icon');
 const pastSearches = document.querySelector('.past-searches');
 
+// This is an array of messages for the breaking news function
 const breakingNewsMessages = [
 `<i class="fas fa-music"></i> HAPPY BIRTHDAY TO PAUL JABARA, THE CO-COMPOSER OF IT'S RAINING MEN! <i class="fas fa-music"></i>`,
 `<i class="fas fa-rainbow"></i> HAPPY BIRTHDAY TO WEATHER GIRL, IZORA ARMSTEAD! HALLELUJAH FOR IZORA! <i class="fas fa-rainbow"></i>`,
@@ -108,7 +109,7 @@ function pastWeatherSearches (recentSearch) {
   let citiesSearched = localStorage.getItem("Past Searches");
   
     const currentCity = recentSearch.toUpperCase();
-    const pastCity = document.createElement("li");
+    const pastCity = document.createElement("button");
     pastCity.textContent = currentCity;
 
     citiesList.appendChild(pastCity);

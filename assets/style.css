@@ -21,6 +21,22 @@ body {
     background-color: var(--eighties-eyeshadow);
 }
 
+button {
+    width: 200px;
+    margin: .5em;
+    background-color: var(--izora-violet);
+    color: var(--weather-girls-blues);
+    font-family: 'Mukta', sans-serif;
+    font-size: 1.5em;
+    border-radius: 20px;
+}
+
+button:hover {
+    background-color: var(--martha-plum);
+    color: var(--eighties-eyeshadow);
+    text-shadow: 0 0 8px var(--martha-plum), 0 0 10px var(--izora-violet);
+}
+
 footer {
     width: 100%;
     padding: .7em;
@@ -137,6 +153,7 @@ uv-index {
     color: var(--eighties-eyeshadow);
     font-family: 'Catamaran', sans-serif;
     font-weight: 900;
+    text-shadow: 0 0 7px var(--martha-plum), 0 0 9px var(--izora-violet);
     border-radius: 10px;
 }
 
