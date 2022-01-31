@@ -33,7 +33,7 @@ function breakingNews (forecast) {
     breaking.innerHTML = breakingNewsMessages[4];
   // Weather Update
   } else { 
-    breaking.textContent = `TODAY YOU CAN EXPECT ${forecast.toUpperCase()}!`;
+    breaking.innerHTML = `TODAY YOU CAN EXPECT ${forecast.toUpperCase()}!`;
   }
 }
 
@@ -132,12 +132,11 @@ function pastWeatherSearches (recentSearch) {
   let citiesSearched = localStorage.getItem("Past Searches");
   
     const currentCity = recentSearch.toUpperCase();
-    const pastCity = document.createElement("button");
+    const pastCity = document.createElement(".btn");
     pastCity.setAttribute("id", recentSearch);
     pastCity.textContent = currentCity;
 
     citiesList.appendChild(pastCity);
-    //getAPI(recentSearch);
 }
 
 // Converts the temperature Celsius to Fahrenheit
@@ -145,7 +144,13 @@ function celsiusToFahrenheit (celTemp) {
   let convertedTemp =  (celTemp * 9 )/ (5 + 32);
   return Math.ceil(convertedTemp) + "°F";
 } 
-
-getWeatherBtn.addEventListener("click", getAPI);
 window.addEventListener("load", breakingNews)
+getWeatherBtn.addEventListener("click", getAPI);
+
+/* jQuery event listener - listens for the past search buttons being clicked */
+$('.btn').each(function() {
+  $(this).click(function(event) {
+    pastWeatherSearches(event)
+  })
+})
 
