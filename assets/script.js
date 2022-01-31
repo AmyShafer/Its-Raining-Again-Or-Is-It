@@ -5,9 +5,13 @@ const APIkey = "414af75288c260f4c9c7eed4eff2b900";
 const weatherIcon = document.querySelectorAll('.weather-icon');
 const pastSearches = document.querySelector('.past-searches');
 
+const cities = [];
+
 function getAPI (event) {
   event.preventDefault();
   let userCity = document.getElementById("user-city").value;
+  // adds recent city search to the past searches
+  pastWeatherSearches(userCity);
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userCity},us&appid=${APIkey}`) 
     .then(function (response) {
       return response.json();
@@ -81,15 +85,28 @@ function displayWeather (weather) {
     currentCard.children[1].children[1].children[2].children[0].textContent = ` ${daysHumidity} %`;
     currentCard.children[1].children[1].children[3].children[0].textContent = daysUVIndex;
   }
-  forecast = daysForecast;
   breakingNews(forecast);
   uvColorCode(daysUVIndex);
+  pastWeatherSearches();
 }
 
 
 // Saves user's past city inputs
-function pastWeatherSearches () {
-  pastSearches.setAttribute("style", "visibility: visible;");
+function pastWeatherSearches (recentSearch) {
+  console.log("HERE: ");
+  let citiesList = document.querySelector(".past-cities-list");
+  cities.push(recentSearch);
+  localStorage.setItem("Past Searches", JSON.stringify(cities));
+  let citiesSearched = localStorage.getItem("Past Searches");
+
+  for (let i = 0; i < cities.length; i++) {
+    const currentCity = cities[i];
+    
+    const pastCity = document.createElement("li");
+    pastCity.textContent = currentCity;
+
+    citiesList.appendChild(pastCity);
+  }
 }
 
 // Outputs important days in the breaking news header
