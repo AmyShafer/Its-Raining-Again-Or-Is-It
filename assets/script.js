@@ -3,7 +3,8 @@ const todayDate = moment().format('MMM Do');
 const getWeatherBtn = document.getElementById("hallelujah");
 const APIkey = "414af75288c260f4c9c7eed4eff2b900";
 const weatherIcon = document.querySelectorAll('.weather-icon');
-const pastSearches = document.querySelector('.past-searches');
+const pastSearchesContainer = document.querySelector('.past-searches');
+const citiesSearchList = document.querySelector(".past-cities-list");
 
 // This is an array of messages for the breaking news function
 const breakingNewsMessages = [
@@ -43,7 +44,6 @@ const cities = [];
 function getAPI (event) {
   event.preventDefault();
   let userCity = document.getElementById("user-city").value;
-  // adds recent city search to the past searches
   pastWeatherSearches(userCity);
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userCity},us&appid=${APIkey}`) 
     .then(function (response) {
@@ -125,18 +125,17 @@ function displayWeather (weather) {
 }
 
 // Saves user's past city inputs and makes them buttons
-function pastWeatherSearches (recentSearch) {
-  let citiesList = document.querySelector(".past-cities-list");
+function pastWeatherSearches (recentSearch, e) {
   cities.push(recentSearch);
   localStorage.setItem("Past Searches", JSON.stringify(cities));
   let citiesSearched = localStorage.getItem("Past Searches");
   
-    const currentCity = recentSearch.toUpperCase();
-    const pastCity = document.createElement(".btn");
-    pastCity.setAttribute("id", recentSearch);
+    const currentCity = recentSearch;
+    const pastCity = document.createElement("button");
+    pastCity.setAttribute("class", ".btn-history");
     pastCity.textContent = currentCity;
 
-    citiesList.appendChild(pastCity);
+    citiesSearchList.appendChild(pastCity);
 }
 
 // Converts the temperature Celsius to Fahrenheit
@@ -146,11 +145,5 @@ function celsiusToFahrenheit (celTemp) {
 } 
 window.addEventListener("load", breakingNews)
 getWeatherBtn.addEventListener("click", getAPI);
-
-/* jQuery event listener - listens for the past search buttons being clicked */
-$('.btn').each(function() {
-  $(this).click(function(event) {
-    pastWeatherSearches(event)
-  })
-})
+pastSearchesContainer.addEventListener("click", pastWeatherSearches);
 
