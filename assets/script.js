@@ -60,7 +60,7 @@ function getAPI (userCity) {
     .then(function (data) {
       weather = data;
       // enables the ticker tape to display the weather conditions for the current day
-      let forecast = weather.weather[0].main.toUpperCase();
+      let forecast = weather.weather[0].description.toUpperCase();
       let update = true;
       breakingNews(update, forecast);
       // information for the weather cards for the 6 day forecast
