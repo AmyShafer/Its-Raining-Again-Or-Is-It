@@ -1,7 +1,7 @@
 
 # It'a Raining Again...Or Is It? -- Weather App
 
-We're your Weather Girls and have we got news for you! You betta listen -- We have a new weather app to put all your weather worries to rest. We might not be able to help with your love life this time but until that 
+We're your Weather Girls and have we got news for you! You betta listen -- We have a new weather app to put all your weather worries to rest. We might not be able to help with your love life this time but until that miracle blesses our skies again, we have just the thing for all your climate quandaries.
 
 ## Table of contents
 * [Technologies](#technologies)
@@ -14,15 +14,15 @@ We're your Weather Girls and have we got news for you! You betta listen -- We ha
 
 ## Technologies
 
-This website was built from scratch using HTML, CSS, JavaScript, Bootstrap, and love for .
+This website was built from scratch using HTML, CSS, JavaScript, Bootstrap, and Love.
 
-Users do not need .
+Users only need to know some city names.
 
 ## Mockup
 
-Spell-cast picture below demon-strates the awesome power of the Scheduler for the Wicked.
+Breaking News! Here's a look at our weather app now!
 
-<img src="./Assets/scheduler666.gif" width="550" height="300" alt="Scheduler for the Wicked"/>
+<img src="./assets/images/app-in-use.jpeg" width="550" height="300" alt="It's Raining Again?"/>
 
 ## Resources-used
 

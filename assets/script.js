@@ -49,7 +49,7 @@ function getAPI (userCity) {
   // Weather Reporter Header
   let showCity = document.getElementById("city-shown");
   showCity.textContent = `${userCity.toUpperCase()} WEATHER REPORT`;
-  pastWeatherSearches(userCity);
+  // Weather API Extravaganza!
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userCity},us&appid=${APIkey}`) 
     .then(function (response) {
       return response.json();
@@ -150,7 +150,6 @@ function pastWeatherSearches (recentSearch) {
   currentCityButton.setAttribute("class", ".btn-history");
   currentCityButton.textContent = currentCityText;
   citiesSearchList.appendChild(currentCityButton);
-  
 }
 
 // Converts the temperature Celsius to Fahrenheit
@@ -164,10 +163,10 @@ getWeatherBtn.addEventListener("click", function(event) {
   event.preventDefault();
   let userCity = document.getElementById("user-city").value;
   getAPI(userCity);
+  pastWeatherSearches(userCity);
 });
 
 citiesSearchList.addEventListener("click", function(event) {
   let cityName = event.target.textContent.toLowerCase();
-  //console.log(cityName);
   getAPI(cityName);
 });
