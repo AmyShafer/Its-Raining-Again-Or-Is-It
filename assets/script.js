@@ -51,9 +51,13 @@ function getAPI (event) {
     })
     .then(function (data) {
       weather = data;
+      // enables the ticker tape to display the weather conditions for the current day
       let forecast = weather.weather[0].main;
       breakingNews(forecast);
+      // information for the weather cards for the 6 day forecast
       currentWeatherSearch(weather);
+      // resets the form for the user input
+      document.querySelector(".form-control").value = "";
     })
 }
 
@@ -131,7 +135,7 @@ function pastWeatherSearches (recentSearch, e) {
   localStorage.setItem("Past Searches", JSON.stringify(cities));
   let citiesSearched = localStorage.getItem("Past Searches");
   
-    const currentCity = recentSearch;
+    const currentCity = recentSearch.toUpperCase();
     const pastCity = document.createElement("button");
     pastCity.setAttribute("class", ".btn-history");
     pastCity.textContent = currentCity;
