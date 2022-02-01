@@ -18,8 +18,7 @@ const breakingNewsMessages = [
 
 // Outputs important days in the breaking news header
 function breakingNews (update, forecast) {
-  update = false;
-  forecast = "WONDERFUL THINGS";
+  forecast !== undefined ? forecast : forecast = "WONDERFUL THINGS";
   // Paul Jabara's Birthday is January 31st
   if (todayDate === "Jan 31st") {
     breaking.innerHTML = breakingNewsMessages[0];
@@ -37,8 +36,8 @@ function breakingNews (update, forecast) {
     breaking.innerHTML = breakingNewsMessages[4];
   // forecast message
   } else if (update) {
+    forecast = forecast;
     breaking.innerHTML = `<h2><i class="fas fa-cloud-sun-rain"></i> TODAY YOU CAN EXPECT ${forecast}! <i class="fas fa-cloud-sun-rain"></i></h2>`;
-  // default
   } else {
     breaking.innerHTML = breakingNewsMessages[5];
   }
