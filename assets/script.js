@@ -45,9 +45,7 @@ function breakingNews (forecast) {
 const cities = [];
 
 // Connects the app to the weather api
-function getAPI (event) {
-  event.preventDefault();
-  let userCity = document.getElementById("user-city").value;
+function getAPI (userCity) {
   // Weather Reporter Header
   let showCity = document.getElementById("city-shown");
   showCity.textContent = `${userCity.toUpperCase()} WEATHER REPORT`;
@@ -162,9 +160,14 @@ function celsiusToFahrenheit (celTemp) {
 }
 
 window.addEventListener("load", breakingNews)
-getWeatherBtn.addEventListener("click", getAPI);
+getWeatherBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+  let userCity = document.getElementById("user-city").value;
+  getAPI(userCity);
+});
+
 citiesSearchList.addEventListener("click", function(event) {
   let cityName = event.target.textContent.toLowerCase();
-  console.log(cityName);
-  getAPI(event);
+  //console.log(cityName);
+  getAPI(cityName);
 });
