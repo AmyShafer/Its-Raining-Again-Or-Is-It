@@ -77,15 +77,19 @@ function uvIndex (weatherData) {
 }
 
 // UV color code
-function uvColorCode (daysUVIndex) {
-  // the default color is green, if the UV Index is under 2
-  if (daysUVIndex >= 2 && daysUVIndex < 6) {
-    currentCard.children[1].children[1].children[3].children[0].setAttribute("style", "background-color: yellow; color: black");
-  } else if (daysUVIndex >= 6 && daysUVIndex < 8) {
-    currentCard.children[1].children[1].children[3].children[0].setAttribute("style", "background-color: orange color: black;");
-  } else if (daysUVIndex >= 8 && daysUVIndex < 11) {
-    currentCard.children[1].children[1].children[3].children[0].setAttribute("style", "background-color: red;");
-  } 
+function uvColorCode () {
+  let getUV = document.querySelectorAll(".uv-index");
+  for (let i = 0; i < getUV.length; i++) {
+    const currentUV = getUV[i].textContent;
+    // the default color is green, if the UV Index is under 2
+    if (currentUV >= 2 && currentUV < 6) {
+      getUV[i].setAttribute("style", "background-color: var(--tall-blonde); color: var(--shaffer-shades);");
+    } else if (currentUV >= 6 && currentUV < 8) {
+      getUV[i].setAttribute("style", "background-color: var(--celsius-orange); color: var(--shaffer-shades);");
+    } else if (currentUV >= 8 && currentUV < 11) {
+      getUV[i].setAttribute("style", "background-color: var(--fahrenheit-red);");
+    } 
+  }
 }
 
 // Organizes all the needed information into an object
@@ -116,7 +120,7 @@ function displayWeather (weather) {
     const daysTemp = weather.daily[i].temp.day;
     const daysWind = weather.daily[i].wind_speed;
     const daysHumidity = weather.daily[i].humidity;
-    const daysUVIndex = weather.daily[i].uvi;
+    let daysUVIndex = weather.daily[i].uvi;
     // content for each card
     currentCard.childNodes[1].textContent = dateString;
     weatherIcon[i].setAttribute("src", `http://openweathermap.org/img/wn/${daysIcon}.png`);
@@ -125,7 +129,7 @@ function displayWeather (weather) {
     currentCard.children[1].children[1].children[2].children[0].textContent = ` ${daysHumidity} %`;
     currentCard.children[1].children[1].children[3].children[0].textContent = daysUVIndex;
   }
-  uvColorCode(daysUVIndex);
+  uvColorCode();
   pastWeatherSearches();
 }
 
