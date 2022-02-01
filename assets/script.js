@@ -4,6 +4,7 @@ const getWeatherBtn = document.getElementById("hallelujah");
 const APIkey = "414af75288c260f4c9c7eed4eff2b900";
 const weatherIcon = document.querySelectorAll('.weather-icon');
 const citiesSearchList = document.querySelector(".past-cities");
+let forecast = "MAGIC";
 
 // This is an array of messages for the breaking news function
 const breakingNewsMessages = [
@@ -12,13 +13,13 @@ const breakingNewsMessages = [
 `<h2> <i class="fas fa-bolt"></i> IT'S RAINING MEN WAS RELEASED ON SEPTEMBER 10TH, 1982! TODAY, THE ICONIC SONG TURNS 40! <i class="fas fa-bolt"></i></h2>`,
 `<h2> <i class="fas fa-glasses"></i> HAPPY BIRTHDAY TO PAUL SHAFFER, THE CO-COMPOSER OF IT'S RAINING MEN! <i class="fas fa-glasses"></i></h2>`,
 `<h2> <i class="fas fa-cloud-moon"></i> HAPPY BIRTHDAY TO WEATHER GIRL, MARTHA WASH! HALLELUJAH FOR MARTHA! <i class="fas fa-cloud-moon"></i></h2>`,
+`<h2><i class="fas fa-cloud-sun-rain"></i> TODAY YOU CAN EXPECT ${forecast}! <i class="fas fa-cloud-sun-rain"></i></h2>`,
 `<h2><i class="fas fa-cloud-sun-rain"></i> ENTER THE CITIES YOU WOULD LIKE TO VISIT AND THE WEATHER GIRLS WILL TELL YOU IF IT IS RAINING THERE <i class="fas fa-cloud-sun-rain"></i></h2>`
-
 ];
 
 // Outputs important days in the breaking news header
 function breakingNews (update, forecast) {
-  forecast !== undefined ? forecast : forecast = "WONDERFUL THINGS";
+  forecast === undefined ? forecast = "MAGIC" : forecast;
   // Paul Jabara's Birthday is January 31st
   if (todayDate === "Jan 31st") {
     breaking.innerHTML = breakingNewsMessages[0];
@@ -36,10 +37,11 @@ function breakingNews (update, forecast) {
     breaking.innerHTML = breakingNewsMessages[4];
   // forecast message
   } else if (update) {
-    forecast = forecast;
+    //forecast;
     breaking.innerHTML = `<h2><i class="fas fa-cloud-sun-rain"></i> TODAY YOU CAN EXPECT ${forecast}! <i class="fas fa-cloud-sun-rain"></i></h2>`;
+  // default message  
   } else {
-    breaking.innerHTML = breakingNewsMessages[5];
+    breaking.innerHTML = breakingNewsMessages[6];
   }
 }
 
