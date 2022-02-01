@@ -3,9 +3,7 @@ const todayDate = moment().format('MMM Do');
 const getWeatherBtn = document.getElementById("hallelujah");
 const APIkey = "414af75288c260f4c9c7eed4eff2b900";
 const weatherIcon = document.querySelectorAll('.weather-icon');
-const pastSearchesContainer = document.querySelector('.past-searches');
 const citiesSearchList = document.querySelector(".past-cities");
-const cityButtons = document.querySelectorAll(".btn-history");
 
 // This is an array of messages for the breaking news function
 const breakingNewsMessages = [
@@ -20,6 +18,7 @@ const breakingNewsMessages = [
 
 // Outputs important days in the breaking news header
 function breakingNews (update, forecast) {
+  update = false;
   forecast = "WONDERFUL THINGS";
   // Paul Jabara's Birthday is January 31st
   if (todayDate === "Jan 31st") {
