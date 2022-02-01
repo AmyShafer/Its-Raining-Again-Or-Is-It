@@ -1,7 +1,7 @@
 
 # It'a Raining Again...Or Is It? -- Weather App
 
-We're your Weather Girls and have we got news for you! You betta listen -- We have a new weather app to put all your weather worries to rest. We might not be able to help with your love life this time but until that miracle blesses our skies again, we have just the thing for all your climate quandaries.
+We're your Weather Girls and have we got news for you! You betta listen -- We have a new weather app to put all your weather worries to rest. We might not be able to help with your love life (this time) but until that miracle blesses our skies again, we have just the thing for all your climate quandaries.
 
 ## Table of contents
 * [Technologies](#technologies)
@@ -14,9 +14,9 @@ We're your Weather Girls and have we got news for you! You betta listen -- We ha
 
 ## Technologies
 
-This website was built from scratch using HTML, CSS, JavaScript, Bootstrap, and Love.
+This website was built from scratch using HTML, CSS, JavaScript, Bootstrap, and Love, Honey!
 
-Users only need to know some city names.
+Users only need to know some city names but we gave y'all one just in case. 
 
 ## Mockup
 
@@ -26,15 +26,19 @@ Breaking News! Here's a look at our weather app now!
 
 ## Resources-used
 
-* <a href="https://getbootstrap.com/docs/5.1/getting-started/introduction/" target="_blank"> As a new user of Bootstrap, the company's docs provided the author with all the comfort of luxury brand coffin. </a> 
+* <a href="https://m.youtube.com/watch?v=ecT42O6I_WI" target="_blank"> This hunk of man was a doll when it came to using the Open Weather API. </a> 
 
-* <a href="https://www.abeautifulsite.net/posts/working-with-html5-data-attributes/k" target="_blank"> The author struggled with data attributes but this website worked its magic. </a> 
+* <a href="https://bbbootstrap.com/snippets/bootstrap-scrolling-breaking-news-ticker-53214404" target="_blank"> My, my! We do love us some Breaking News Ticker Tape! Thank you Bootstrap! </a> 
+
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/target" target="_blank"> Wouldn't you know it, we got a little stuck when it came to making the past city buttons functional. A kindly Learning Assistant sent us this link and we were on our marry, weather girl way! </a> 
 
 ## Possible-improvements
 
-The Living suggested adding a toggle that changes the scheduler "normal" to "wicked" but The Dead could not be bothered.
+We hoped to change the ticker tape based on the weather requested by visited. We thought it would be neat if the ticker tape said things like "You can expect rain!". 
 
-A vampire desired the favicons take up the entire button and than changed to the text "Skull Save" when the user hovered over but the vampire never chips in for gas so his request was ignored. 
+The spacing of the weather cards could be better. We're still getting the hang of Bootstrap. 
+
+We are still also getting the hang of "const" and "let" and may have used the less ideal keyword at times.
 
 ---
 

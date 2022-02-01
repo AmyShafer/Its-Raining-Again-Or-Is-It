@@ -15,10 +15,12 @@ const breakingNewsMessages = [
 `<h2> <i class="fas fa-glasses"></i> HAPPY BIRTHDAY TO PAUL SHAFFER, THE CO-COMPOSER OF IT'S RAINING MEN! <i class="fas fa-glasses"></i></h2>`,
 `<h2> <i class="fas fa-cloud-moon"></i> HAPPY BIRTHDAY TO WEATHER GIRL, MARTHA WASH! HALLELUJAH FOR MARTHA! <i class="fas fa-cloud-moon"></i></h2>`,
 `<h2><i class="fas fa-cloud-sun-rain"></i> ENTER THE CITIES YOU WOULD LIKE TO VISIT AND THE WEATHER GIRLS WILL TELL YOU IF IT IS RAINING THERE <i class="fas fa-cloud-sun-rain"></i></h2>`
+
 ];
 
 // Outputs important days in the breaking news header
-function breakingNews (forecast) {
+function breakingNews (update, forecast) {
+  let isUpdated = update;
   // Paul Jabara's Birthday is January 31st
   if (todayDate === "Jan 31st") {
     breaking.innerHTML = breakingNewsMessages[0];
@@ -34,9 +36,7 @@ function breakingNews (forecast) {
   // Martha Wash's Birthday is December 28th  
   } else if (todayDate === "Dec 28th") {
     breaking.innerHTML = breakingNewsMessages[4];
-  // Weather Update
-  } else if (forecast) { 
-    breaking.innerHTML = `TODAY YOU CAN EXPECT ${forecast.toUpperCase()}!`;
+  // default
   } else {
     breaking.innerHTML = breakingNewsMessages[5];
   }
@@ -58,7 +58,7 @@ function getAPI (userCity) {
       weather = data;
       // enables the ticker tape to display the weather conditions for the current day
       let forecast = weather.weather[0].main;
-      breakingNews(forecast);
+      breakingNews(true, forecast);
       // information for the weather cards for the 6 day forecast
       currentWeatherSearch(weather);
       // resets the form for the user input
