@@ -6,7 +6,6 @@ const weatherIcon = document.querySelectorAll('.weather-icon');
 const pastSearchesContainer = document.querySelector('.past-searches');
 const citiesSearchList = document.querySelector(".past-cities");
 const cityButtons = document.querySelectorAll(".btn-history");
-let forecast = "WONDERFUL THINGS";
 
 // This is an array of messages for the breaking news function
 const breakingNewsMessages = [
@@ -21,6 +20,7 @@ const breakingNewsMessages = [
 
 // Outputs important days in the breaking news header
 function breakingNews (update, forecast) {
+  forecast = "WONDERFUL THINGS";
   // Paul Jabara's Birthday is January 31st
   if (todayDate === "Jan 31st") {
     breaking.innerHTML = breakingNewsMessages[0];
