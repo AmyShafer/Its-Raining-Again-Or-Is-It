@@ -180,7 +180,15 @@ ul li {
     color: var(--snow-day-white);
 }
 
-/* ID for the City Form */
+/* ID are alphabetized */
+#city-shown {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: var(--martha-plum);
+    text-shadow: 0 0 8px var(--izora-violet), 0 0 10px var(--snow-day-white);
+}
+
 #form-header {
     color: var(--snow-day-white);
     text-shadow: 0 0 8px var(--martha-plum), 0 0 10px var(--izora-violet);

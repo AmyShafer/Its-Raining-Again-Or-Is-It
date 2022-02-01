@@ -48,6 +48,9 @@ const cities = [];
 function getAPI (event) {
   event.preventDefault();
   let userCity = document.getElementById("user-city").value;
+  // Weather Reporter Header
+  let showCity = document.getElementById("city-shown");
+  showCity.textContent = `${userCity.toUpperCase()} WEATHER REPORT`;
   pastWeatherSearches(userCity);
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userCity},us&appid=${APIkey}`) 
     .then(function (response) {
@@ -162,5 +165,6 @@ window.addEventListener("load", breakingNews)
 getWeatherBtn.addEventListener("click", getAPI);
 citiesSearchList.addEventListener("click", function(event) {
   let cityName = event.target.textContent.toLowerCase();
-  getAPI();
+  console.log(cityName);
+  getAPI(event);
 });
