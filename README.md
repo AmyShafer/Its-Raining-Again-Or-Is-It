@@ -26,7 +26,7 @@ Breaking News! Here's a look at our weather app now!
 
 ## Resources-used
 
-* <a href="https://m.youtube.com/watch?v=ecT42O6I_WI" target="_blank"> This hunk of man was a doll when it came to using the Open Weather API. </a> 
+* <a href="https://m.youtube.com/watch?v=ecT42O6I_WI" target="_blank"> This hunk of man was a doll when it came to using the Open Weather API. I hope the rain brings him next time! </a> 
 
 * <a href="https://bbbootstrap.com/snippets/bootstrap-scrolling-breaking-news-ticker-53214404" target="_blank"> My, my! We do love us some Breaking News Ticker Tape! Thank you Bootstrap! </a> 
 
@@ -34,7 +34,7 @@ Breaking News! Here's a look at our weather app now!
 
 ## Possible-improvements
 
-We hoped to change the ticker tape based on the weather requested by visited. We thought it would be neat if the ticker tape said things like "You can expect rain!". 
+We thought it would be dramatic if the ticker tape Favicons changed based on the weather requested. You can expect this little bit extra in the future, Honey!
 
 The spacing of the weather cards could be better. We're still getting the hang of Bootstrap. 
 

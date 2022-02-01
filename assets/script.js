@@ -6,6 +6,7 @@ const weatherIcon = document.querySelectorAll('.weather-icon');
 const pastSearchesContainer = document.querySelector('.past-searches');
 const citiesSearchList = document.querySelector(".past-cities");
 const cityButtons = document.querySelectorAll(".btn-history");
+let forecast = "WONDERFUL THINGS";
 
 // This is an array of messages for the breaking news function
 const breakingNewsMessages = [
@@ -20,7 +21,6 @@ const breakingNewsMessages = [
 
 // Outputs important days in the breaking news header
 function breakingNews (update, forecast) {
-  let isUpdated = update;
   // Paul Jabara's Birthday is January 31st
   if (todayDate === "Jan 31st") {
     breaking.innerHTML = breakingNewsMessages[0];
@@ -36,6 +36,9 @@ function breakingNews (update, forecast) {
   // Martha Wash's Birthday is December 28th  
   } else if (todayDate === "Dec 28th") {
     breaking.innerHTML = breakingNewsMessages[4];
+  // forecast message
+  } else if (update) {
+    breaking.innerHTML = `<h2><i class="fas fa-cloud-sun-rain"></i> TODAY YOU CAN EXPECT ${forecast}! <i class="fas fa-cloud-sun-rain"></i></h2>`;
   // default
   } else {
     breaking.innerHTML = breakingNewsMessages[5];
@@ -57,8 +60,9 @@ function getAPI (userCity) {
     .then(function (data) {
       weather = data;
       // enables the ticker tape to display the weather conditions for the current day
-      let forecast = weather.weather[0].main;
-      breakingNews(true, forecast);
+      let forecast = weather.weather[0].main.toUpperCase();
+      let update = true;
+      breakingNews(update, forecast);
       // information for the weather cards for the 6 day forecast
       currentWeatherSearch(weather);
       // resets the form for the user input
