@@ -8,11 +8,11 @@ const citiesSearchList = document.querySelector(".past-cities-list");
 
 // This is an array of messages for the breaking news function
 const breakingNewsMessages = [
-`<i class="fas fa-music"></i> HAPPY BIRTHDAY TO PAUL JABARA, THE CO-COMPOSER OF IT'S RAINING MEN! <i class="fas fa-music"></i>`,
-`<i class="fas fa-rainbow"></i> HAPPY BIRTHDAY TO WEATHER GIRL, IZORA ARMSTEAD! HALLELUJAH FOR IZORA! <i class="fas fa-rainbow"></i>`,
-`<i class="fas fa-bolt"></i> IT'S RAINING MEN WAS RELEASED ON SEPTEMBER 10TH, 1982! TODAY, THE ICONIC SONG TURNS 40! <i class="fas fa-bolt"></i>`,
-`<i class="fas fa-glasses"></i> HAPPY BIRTHDAY TO PAUL SHAFFER, THE CO-COMPOSER OF IT'S RAINING MEN! <i class="fas fa-glasses"></i>`,
-`<i class="fas fa-cloud-moon"></i> HAPPY BIRTHDAY TO WEATHER GIRL, MARTHA WASH! HALLELUJAH FOR MARTHA! <i class="fas fa-cloud-moon"></i>`
+`<h2> <i class="fas fa-music"></i> HAPPY BIRTHDAY TO PAUL JABARA, THE CO-COMPOSER OF IT'S RAINING MEN! <i class="fas fa-music"></i></h2>`,
+`<h2> <i class="fas fa-rainbow"></i> HAPPY BIRTHDAY TO WEATHER GIRL, IZORA ARMSTEAD! HALLELUJAH FOR IZORA! <i class="fas fa-rainbow"></i></h2>`,
+`<h2> <i class="fas fa-bolt"></i> IT'S RAINING MEN WAS RELEASED ON SEPTEMBER 10TH, 1982! TODAY, THE ICONIC SONG TURNS 40! <i class="fas fa-bolt"></i></h2>`,
+`<h2> <i class="fas fa-glasses"></i> HAPPY BIRTHDAY TO PAUL SHAFFER, THE CO-COMPOSER OF IT'S RAINING MEN! <i class="fas fa-glasses"></i></h2>`,
+`<h2> <i class="fas fa-cloud-moon"></i> HAPPY BIRTHDAY TO WEATHER GIRL, MARTHA WASH! HALLELUJAH FOR MARTHA! <i class="fas fa-cloud-moon"></i></h2>`
 ];
 
 // Outputs important days in the breaking news header
@@ -51,6 +51,8 @@ function getAPI (event) {
     })
     .then(function (data) {
       weather = data;
+      let forecast = weather.weather[0].main;
+      breakingNews(forecast);
       currentWeatherSearch(weather);
     })
 }
@@ -119,7 +121,6 @@ function displayWeather (weather) {
     currentCard.children[1].children[1].children[2].children[0].textContent = ` ${daysHumidity} %`;
     currentCard.children[1].children[1].children[3].children[0].textContent = daysUVIndex;
   }
-  breakingNews(daysForecast);
   uvColorCode(daysUVIndex);
   pastWeatherSearches();
 }
