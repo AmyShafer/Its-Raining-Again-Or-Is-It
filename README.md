@@ -10,6 +10,7 @@ We're your Weather Girls and have we got news for you! You betta listen -- We ha
 * [Possible-improvements](#possible-improvements)
 * [Github-url](#github-url)
 * [Deployed-url](#deployed-url)
+* [Licensing] (#licensing)
 
 
 ## Technologies
@@ -47,4 +48,10 @@ We are still also getting the hang of "const" and "let" and may have used the le
 
 ## Deployed-url
 <a href="https://amyshafer.github.io/Its-Raining-Again-Or-Is-It/" target="_blank_">It's Raining Again...Or Is It? URL</a> 
+
+## Licensing
+
+MIT License
+
+Copyright (c) [2022] [Amy U. Shafer]
 
