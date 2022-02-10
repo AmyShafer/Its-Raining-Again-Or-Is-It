@@ -22,7 +22,7 @@ Users only need to know some city names but we gave y'all one just in case.
 
 Breaking News! Here's a look at our weather app now!
 
-<img src="./assets/images/weatherGirlsFull.jpeg" width="550" height="700" alt="It's Raining Again?"/>
+<img src="./assets/images/wGirlsApp.gif" width="475" height="352" alt="It's Raining Again?"/>
 
 ## Resources-used
 
