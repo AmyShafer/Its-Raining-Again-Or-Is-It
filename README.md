@@ -10,9 +10,6 @@ We're your Weather Girls and have we got news for you! You betta listen -- We ha
 * [Possible-improvements](#possible-improvements)
 * [Github-url](#github-url)
 * [Deployed-url](#deployed-url)
-* [Author](#author)
-* [Licensing](#licensing)
-
 
 
 ## Technologies
@@ -25,7 +22,7 @@ Users only need to know some city names but we gave y'all one just in case.
 
 Breaking News! Here's a look at our weather app now!
 
-<img src="./assets/images/wGirlsApp.gif" width="475" height="352" alt="It's Raining Again?"/>
+<img src="./assets/images/wGirlsApp.gif" width="490" height="340" alt="It's Raining Again?"/>
 
 ## Resources-used
 
@@ -50,33 +47,4 @@ We are still also getting the hang of "const" and "let" and may have used the le
 
 ## Deployed-url
 <a href="https://amyshafer.github.io/Its-Raining-Again-Or-Is-It/" target="_blank_">It's Raining Again...Or Is It? URL</a> 
-
-## Author
-
-This application was created by Amy U. Shafer. You can send her nice messages at Amy.U.Shafer@gmail.com ☂️
-
-## Licensing 
-
-MIT License
-
-Copyright (c) 2022 Amy U. Shafer
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
 
