@@ -30,7 +30,7 @@ Breaking News! Here's a look at our weather app now!
 
 * <a href="https://bbbootstrap.com/snippets/bootstrap-scrolling-breaking-news-ticker-53214404" target="_blank"> My, my! We do love us some Breaking News Ticker Tape! Thank you Bootstrap! </a> 
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/target" target="_blank"> Wouldn't you know it, we got a little stuck when it came to making those city buttons functional. A kindly Learning Assistant from the Slack App sent us this link and we were on our marry, weather girl way! </a> 
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/target" target="_blank"> Wouldn't you know it, we got a little stuck when it came to making those city buttons functional. A kindly Learning Assistant from the Slack App sent us this link and we were on our merry, weather girl way! </a> 
 
 ## Possible-improvements
 
