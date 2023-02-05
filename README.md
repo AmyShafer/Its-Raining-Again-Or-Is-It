@@ -1,5 +1,5 @@
 
-# It'a Raining Again...Or Is It? -- Weather App
+# It's Raining Again...Or Is It? -- Weather App
 
 We're your Weather Girls and have we got news for you! You betta listen -- We have a new weather app to put all your weather worries to rest. We might not be able to help with your love life (this time) but until that miracle blesses our skies again, we have just the thing for all your climate quandaries.
 
