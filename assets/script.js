@@ -54,7 +54,7 @@ function getAPI(userCity) {
   let showCity = document.getElementById("city-shown");
   showCity.textContent = `${userCity.toUpperCase()} WEATHER REPORT`;
   // Weather API Extravaganza!
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userCity}&units=imperial&appid=${APIkey}`)
+  fetch(`https://api.openweathermap.org/data/3.0/weather?q=${userCity}&units=imperial&appid=${APIkey}`)
     .then(function (response) {
       return response.json();
     })
@@ -73,7 +73,7 @@ function getAPI(userCity) {
 
 // The UV Index requires an One Call API request unlike the other weather information
 function uvIndex(weatherData) {
-  let oneCallAPI = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherData.lat}&lon=${weatherData.long}&units=imperial&appid=${APIkey}`;
+  let oneCallAPI = `https://api.openweathermap.org/data/3.0/onecall?lat=${weatherData.lat}&lon=${weatherData.long}&units=imperial&appid=${APIkey}`;
 
   fetch(oneCallAPI)
     .then(function (response) {
