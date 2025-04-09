@@ -1,7 +1,7 @@
 let breaking = document.querySelector('.news-scroll');
 const todayDate = moment().format('MMM Do');
 const getWeatherBtn = document.getElementById("hallelujah");
-const APIkey = "b0b5ce225a135b61541658e2eea12ae0";
+const APIkey = "fd7877792906a3a5c777d6a06b40e2b4";
 const weatherIcon = document.querySelectorAll('.weather-icon');
 const citiesSearchList = document.querySelector(".past-cities");
 let forecast = "MAGIC";
@@ -112,10 +112,10 @@ function currentWeatherSearch(weather) {
     icon: weather.weather[0].icon,
     temp: weather.main.temps,
     wind: weather.wind.speed,
-    humidity: weather.main.humidity,
-    uvIndex: 0
+    humidity: weather.main.humidity
+    // uvIndex: 0
   }
-  uvIndex(weatherObj);
+  // uvIndex(weatherObj);
 }
 
 // Outputs the weather forecast to the page
