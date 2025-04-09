@@ -1,7 +1,7 @@
 let breaking = document.querySelector('.news-scroll');
 const todayDate = moment().format('MMM Do');
 const getWeatherBtn = document.getElementById("hallelujah");
-const APIkey = "6be1f682a20b29253945d305494f763c";
+const APIkey = "fd7877792906a3a5c777d6a06b40e2b4";
 const weatherIcon = document.querySelectorAll('.weather-icon');
 const citiesSearchList = document.querySelector(".past-cities");
 let forecast = "MAGIC";
