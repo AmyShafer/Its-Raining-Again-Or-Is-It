@@ -73,7 +73,7 @@ function getAPI(userCity) {
 
 // The UV Index requires an One Call API request unlike the other weather information
 function uvIndex(weatherData) {
-  let oneCallAPI = `https://api.openweathermap.org/data/3.0/onecall?lat=${weatherData.lat}&lon=${weatherData.long}&units=imperial&appid=${APIkey}`;
+  let oneCallAPI = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherData.lat}&lon=${weatherData.long}&units=imperial&appid=${APIkey}`;
 
   fetch(oneCallAPI)
     .then(function (response) {
