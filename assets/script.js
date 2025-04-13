@@ -112,7 +112,7 @@ function currentWeatherSearch(weather) {
     icon: weather.weather[0].icon,
     temp: weather.main.temps,
     wind: weather.wind.speed,
-    humidity: weather.main.humidity
+    humidity: weather.main.humidity,
     uvIndex: 0
   }
   uvIndex(weatherObj);
