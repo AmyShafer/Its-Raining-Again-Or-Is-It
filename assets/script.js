@@ -113,9 +113,9 @@ function currentWeatherSearch(weather) {
     temp: weather.main.temps,
     wind: weather.wind.speed,
     humidity: weather.main.humidity
-    // uvIndex: 0
+    uvIndex: 0
   }
-  // uvIndex(weatherObj);
+  uvIndex(weatherObj);
 }
 
 // Outputs the weather forecast to the page
