@@ -50,25 +50,59 @@ const cities = [];
 
 // Connects the app to the weather api
 function getAPI(userCity) {
-  // Weather Reporter Header
   let showCity = document.getElementById("city-shown");
   showCity.textContent = `${userCity.toUpperCase()} WEATHER REPORT`;
-  // Weather API Extravaganza!
-  fetch(` http://api.openweathermap.org/geo/1.0/direct?q=${userCity}&appid=${APIkey}`)
+
+  // Get coordinates from Geocoding API
+  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${userCity}&limit=1&appid=${APIkey}`)
     .then(function (response) {
       return response.json();
     })
-    .then(function (data) {
-      weather = data;
-      // enables the ticker tape to display the weather conditions for the current day
-      let forecast = weather.description.toUpperCase();
-      let update = true;
-      breakingNews(update, forecast);
-      // information for the weather cards for the 6 day forecast
-      currentWeatherSearch(weather);
-      // resets the form for the user input
-      document.querySelector(".form-control").value = "";
+    .then(function (geoData) {
+      if (!geoData.length) {
+        breaking.innerHTML = `<h2><i class="fas fa-exclamation-triangle"></i> City not found. Try again! <i class="fas fa-exclamation-triangle"></i></h2>`;
+        return;
+      }
+
+      const {
+        lat,
+        lon,
+        name,
+        country,
+        state
+      } = geoData[0];
+
+      // Use One Call 3.0 API to get full weather data
+      const oneCallAPI = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${APIkey}`;
+
+      fetch(oneCallAPI)
+        .then(response => response.json())
+        .then(function (weatherData) {
+          // Update breaking news with today's forecast
+          let forecast = weatherData.current.weather[0].description.toUpperCase();
+          breakingNews(true, forecast);
+
+          // Build weather object
+          let weatherObj = {
+            lat: lat,
+            lon: lon,
+            icon: weatherData.current.weather[0].icon,
+            temp: weatherData.current.temp,
+            wind: weatherData.current.wind_speed,
+            humidity: weatherData.current.humidity,
+            uvIndex: 0
+          };
+
+          uvIndex(weatherObj); // Also calls displayWeather()
+
+          // Clear input field
+          document.querySelector(".form-control").value = "";
+        });
     })
+    .catch(function (error) {
+      console.error("Error fetching weather data:", error);
+      breaking.innerHTML = `<h2><i class="fas fa-bug"></i> Something went wrong! <i class="fas fa-bug"></i></h2>`;
+    });
 }
 
 // The UV Index requires an One Call API request unlike the other weather information
