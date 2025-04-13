@@ -54,7 +54,7 @@ function getAPI(userCity) {
   let showCity = document.getElementById("city-shown");
   showCity.textContent = `${userCity.toUpperCase()} WEATHER REPORT`;
   // Weather API Extravaganza!
-  fetch(` http://api.openweathermap.org/geo/1.0/direct?q=${userCity}&appid=${API key}`)
+  fetch(` http://api.openweathermap.org/geo/1.0/direct?q=${userCity}&appid=${APIkey}`)
     .then(function (response) {
       return response.json();
     })
